@@ -2,13 +2,21 @@
 // @ts-nocheck
 
     import Header from "../Header.svelte";
-    import {notes} from '$lib/noteStore.js';
-    let options = ['Option 1', 'Option 2', 'Option 3'];
+    import { notes } from '$lib/noteStore.js';
+    import Muistiinpanot from "../Note.svelte";
+	import { courses } from "$lib/courseStore";
+
+    export let data2;
+    
+    let options = [notes];
     // @ts-ignore
     let selectedOption;
 
+    if ($notes.length === 0) {
+        notes.populate(data2);
+    }
+
     // @ts-ignore
-    let note = "";
 </script>
 
 <Header />
@@ -26,9 +34,10 @@
     <p>Selected course: {selectedOption}</p>
 </div>
 
-<!-- {#each $notes as note}
-    < {...note} />
-    
-{/each} -->
+
+
+{#each $notes as note}
+    <Muistiinpanot {...note} />
+{/each}
 
 

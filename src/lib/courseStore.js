@@ -11,7 +11,7 @@ function createCourses() {
     ]
 
     // @ts-ignore
-    const { subscribe, set, update} = writable(og_courses);
+    const { subscribe, set, update} = writable([]);
 
     const add_course = (course) => {
         update((courses) => {
@@ -19,11 +19,13 @@ function createCourses() {
             return [...courses,{id, ...course}]
         });
     };
+
     return {
         subscribe,
         // @ts-ignore
         add: add_course,
-        reset: () => set([])
+        reset: () => set([]),
+        populate: (courses) => set(courses)
     };
 }
 

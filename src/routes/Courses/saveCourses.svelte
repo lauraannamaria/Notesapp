@@ -12,11 +12,12 @@
         courses.add(course);
         name = '';
         id = '';
-        notes_count = 0; // Aseta notes_count numeroksi
     }
 </script>
 
 <div>
     <input bind:value={name} placeholder="Nimi"/>
+    <input bind:value={id} placeholder="ID"/>
+    <input type="number" bind:value={notes_count} placeholder="Notes count"/>
     <button on:click={saveCourse}>Save</button>
 </div>

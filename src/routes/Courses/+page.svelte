@@ -1,10 +1,15 @@
 <script>
     import Header from "../Header.svelte";;
     import CourseList from "../CourseList.svelte";
-    import {courses} from "$lib/courseStore.js"
+    import { courses } from "$lib/courseStore.js"
     import Nappi from "./saveCourses.svelte";
-    
-    // let name;
+
+    export let data;
+
+    if ($courses.length === 0) {
+        courses.populate(data);
+    }
+
 </script>
 
 <Header />
@@ -15,15 +20,9 @@
 
 <Nappi />
 
+<CourseList courses = {courses} />
 
-
-<!-- <div>
-    <input type="text" placeholder="Add course...">
-    <button class="check">✔</button>
-</div> -->
-
-
-<CourseList />
+<!-- {JSON.stringify(data, null, 2)} -->
 
 <!-- <style>
     input{

@@ -8,20 +8,16 @@
     export let notes_count = 0;
 </script>
 
-<!-- <div>
-    <input bind:value={name} placeholder="Nimi"/>
-    <button on:click={saveCourse}>Save</button>
-</div> -->
 
 <a href={`/course/${id}`}>
     <div class="kurssipalikka">
-        <h3>Opintojakso: {name}</h3>
+        <h3>Course name: {name}</h3>
         <p>ID: {id}</p>
         
         {#if notes_count !== 0}
-            <p>Muistiinpanot: {notes_count}</p>
+            <p>Notes: {notes_count}</p>
         {:else}
-            <p>Muistiinpanoja ei saatavilla.</p>
+            <p>No notes for this course.</p>
         {/if}
 
     </div>
